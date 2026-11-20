@@ -1,0 +1,7 @@
+*.iso
+*.xdelta
+*.ttf
+work/
+fonts/
+preview/
+__pycache__/
