@@ -130,6 +130,18 @@ def analyze(box):
 def apply_job(T,job,debug=False):
     x,y,w,h,text=job[:5]; o=job[5] if len(job)>5 else {}
     if text is None: T.idx[y:y+h,x:x+w]=T.orig[y:y+h,x:x+w]; return {}
+    if o.get('overlay'):
+        # subtitle drawn over a photo: keep background, quantize to the whole palette
+        R=T.rgba()[y:y+h,x:x+w].astype(float)
+        im=Image.new('L',(w,h)); dr=ImageDraw.Draw(im)
+        f=font(o.get('font','heavy'),o.get('size',22))
+        al=o.get('align','r'); px={'l':4,'c':w//2,'r':w-4}[al]
+        dr.text((px,h//2),text,font=f,fill=255,anchor={'l':'lm','c':'mm','r':'rm'}[al])
+        m=np.asarray(im,float)/255
+        om=np.asarray(im.filter(ImageFilter.MaxFilter(2*o.get('ow',2)+1)).filter(ImageFilter.GaussianBlur(0.6)),float)/255
+        out=R*(1-om[...,None])+np.array(o.get('outline',[45,35,30,255]),float)*om[...,None]
+        out=out*(1-m[...,None])+np.array(o.get('fill',[250,248,240,255]),float)*m[...,None]
+        T.idx[y:y+h,x:x+w]=T.quant(out,None); return {}
     if o.get('uni') and o.get('gen'):
         return uni_apply(T,job)
     if o.get('uni'):

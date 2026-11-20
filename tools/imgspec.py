@@ -2,6 +2,7 @@
 B={'font':'bold','sx':0.5,'fill':[25,21,19,255],'outline':None,'bg':'rowmed'}
 SPEC={
 ('UI/tex_op_ash.dat','image/UI_tmenu01.gim'):[
+ [40,124,214,32,'대전략 포터블',dict(overlay=True,font='heavy',size=22,align='r',noexpand=True)],
  [288,276,160,23,'시나리오 모드',dict(B,align='l',size=22)],
  [288,308,150,23,'프리 모드',dict(B,align='l',size=22)],
  [10,397,170,24,'미션 모드',dict(B,align='l',size=22)],

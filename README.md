@@ -6,8 +6,8 @@ PSP 일본판 **大戦略ポータブル (대전략 포터블, ULJM-05068, v1.03
 
 1. 아래 해시와 일치하는 **원본 `.iso`** 를 준비합니다. (CSO·CHD 등으로 변환한 이미지에는 적용할 수 없습니다.)
    - PowerShell: `Get-FileHash -Algorithm MD5 -LiteralPath '.\Daisenryaku Portable (Japan) (v1.03).iso'`
-2. xdeltaUI 같은 도구로 원본 `.iso` 에 `DaisenryakuPortable_KO_v1.0.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ISO, Output File = 새 파일명)
-   - 명령줄: `xdelta3 -d -s "Daisenryaku Portable (Japan) (v1.03).iso" DaisenryakuPortable_KO_v1.0.xdelta "Daisenryaku Portable (Korean).iso"`
+2. xdeltaUI 같은 도구로 원본 `.iso` 에 `DaisenryakuPortable_KO_v1.0.1.xdelta` 를 적용합니다. (Patch = xdelta, Source File = 원본 ISO, Output File = 새 파일명)
+   - 명령줄: `xdelta3 -d -s "Daisenryaku Portable (Japan) (v1.03).iso" DaisenryakuPortable_KO_v1.0.1.xdelta "Daisenryaku Portable (Korean).iso"`
 3. 만들어진 ISO를 PPSSPP 또는 커스텀 펌웨어(PSP·PS Vita Adrenaline 등)에서 실행합니다.
 
 | 항목 | 값 |
@@ -15,9 +15,9 @@ PSP 일본판 **大戦略ポータブル (대전략 포터블, ULJM-05068, v1.03
 | 원본 ISO 크기 | 138,772,480 바이트 |
 | 원본 ISO MD5 | `0fd15a8dc14b1e6a65a75008377230d0` |
 | 원본 ISO SHA-256 | `10805fc55a0508f2b8a15ab6cf991831413805111f4c56e99c21492ecc6dc2ad` |
-| xdelta SHA-256 | `e8ddeb6c8ff71dfbd4753515740054222b7507a01aca419b30a8408b8cf97945` |
+| xdelta SHA-256 | `2c6348b1f1461ec157884aa87251d14b47cd3b60b1ed95362060b454231f1225` |
 | 결과 ISO 크기 | 138,772,480 바이트 |
-| 결과 ISO SHA-256 | `b123662ebb8af1ade6f21ea6a3b74e9925c6f3e01163c43b67b901f4b95de13f` |
+| 결과 ISO SHA-256 | `25c1d55230382968e9d2aa979a2708e91b23d206b7ee0b6ea7b5db7539314473` |
 
 ## 주의
 - 암호화되지 않은 수정 실행 파일(BOOT.BIN)을 EBOOT.BIN 자리에도 넣었기 때문에 **PPSSPP·커스텀 펌웨어 전용**입니다. 정품 펌웨어에서는 부팅되지 않습니다.
@@ -30,10 +30,11 @@ PSP 일본판 **大戦略ポータブル (대전략 포터블, ULJM-05068, v1.03
 - 게임 글꼴에 한글 560자 추가 (갈무리11 기반 도트 글꼴)
 - 실행 파일 문자열 36개: 세이브 데이터 제목·설명, 시나리오 이름 32개
 - 그림 글자 19장·라벨 464개: 메뉴 제목, 전황·부대표·유닛 정보 창, 버튼 안내, 대화상자, 결과 화면 등
+  - 타이틀 로고 옆에 「대전략 포터블」 한글 자막
   - 원본과 비슷한 글꼴(나눔스퀘어네오·서울한강체)을 쓰고, 작은 글씨는 갈무리 글꼴로 선명하게 그렸습니다.
 
 ## 그대로 둔 것
-- 타이틀 로고, 부팅 시 회사 로고, 「press start button」·저작권 표기
+- 타이틀 로고 그림(아래에 한글 자막을 입힘), 「press start button」·저작권 표기
 - 「turn」·「MAP」·「Units」 같은 영문 장식 글자
 
 ## 검증 범위
