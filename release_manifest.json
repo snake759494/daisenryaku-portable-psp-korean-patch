@@ -1,11 +1,11 @@
 {
-    "version":  "v1.0.1",
-    "asset":  "DaisenryakuPortable_KO_v1.0.1.xdelta",
-    "asset_size":  1007524,
-    "asset_sha256":  "2c6348b1f1461ec157884aa87251d14b47cd3b60b1ed95362060b454231f1225",
+    "version":  "v1.0.2",
+    "asset":  "DaisenryakuPortable_KO_v1.0.2.xdelta",
+    "asset_size":  989387,
+    "asset_sha256":  "db45bc8c3d8f522ad36066e82a82ac3057efdc3ebbb4a023223ddc220ecbace2",
     "source_iso_size":  138772480,
     "source_iso_md5":  "0fd15a8dc14b1e6a65a75008377230d0",
     "source_iso_sha256":  "10805fc55a0508f2b8a15ab6cf991831413805111f4c56e99c21492ecc6dc2ad",
     "result_iso_size":  138772480,
-    "result_iso_sha256":  "25c1d55230382968e9d2aa979a2708e91b23d206b7ee0b6ea7b5db7539314473"
+    "result_iso_sha256":  "bfc3d846f59e248c885cda84206e1dd358efec1e049ec440496ed1da2712c0a4"
 }

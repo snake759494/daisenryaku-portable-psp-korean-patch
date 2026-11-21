@@ -121,13 +121,13 @@ SPEC[('UI/tex_op_ash.dat','image/UI_tmenu04.gim')]=[
  [436,272,23,17,'함',dict(OP,size=15)],
  [459,272,48,17,'안 함',dict(OP,size=15)],
  [206,305,27,16,'빠름',dict(OP,size=14)],
- [278,305,72,16,'전투 애니',dict(OP,size=14)],
- [351,305,57,16,'가이드',dict(OP,size=14)],
- [408,305,78,16,'헥스 테두리',dict(OP,size=14)],
+ [278,310,66,16,'전투 애니',dict(OP,size=14)],
+ [349,310,64,16,'가이드',dict(OP,size=14)],
+ [416,310,70,16,'헥스 테두리',dict(OP,size=14)],
  [196,322,57,17,'이동 속도',dict(OP,size=14)],
- [254,322,72,17,'수입 확인',dict(OP,size=14)],
- [327,322,76,17,'보급 확인',dict(OP,size=14)],
- [406,322,30,17,'느림',dict(OP,size=14)],
+ [254,326,72,16,'수입 확인',dict(OP,size=14)],
+ [327,326,76,16,'보급 확인',dict(OP,size=14)],
+ [406,326,30,16,'느림',dict(OP,size=14)],
 ]
 def lab(x,y,w,h,t,m='p',**k):
     o=dict(font=('pixel' if h<=13 else 'bold'),fill=[255,255,255,255],outline=[30,30,30,255],size=h if h>13 else 12,align='l')
@@ -160,7 +160,7 @@ SPEC[('UI/tex_ui_ash.dat','image/UI_uniphs.gim')]=[
  lab(488,258,24,12,'헬기',X,gstart=2),lab(488,270,24,12,'보급',X,gstart=2),
  lab(304,310,52,15,'파괴·수복',X),
  lab(310,328,76,16,'군자금 수입',G),lab(310,352,90,16,'지형 상세 정보',G),
- lab(292,370,58,14,'메가 헥스',X),lab(352,370,48,14,'미사일 발사',X),lab(400,370,46,14,'점령·회복',X),lab(448,370,40,14,'스텔스',X),
+ [289,370,6,14,' ',dict(font='pixel',size=12,fit=False,ow=0,noexpand=True,nofit=True,ix={'bg':225,'fill':225})],[295,370,50,14,'메가 헥스',dict(font='pixel',size=12,fit=False,ow=1,align='c',gstart=1,noexpand=True,nofit=True,ix={'bg':225,'fill':255,'outline':13})],[346,370,49,14,'미사일발사',dict(font='pixel9',size=10,fit=False,ow=1,align='c',gstart=2,noexpand=True,nofit=True,ix={'bg':225,'fill':255,'outline':13})],[398,370,44,14,'점령·회복',dict(font='pixel',size=12,fit=False,ow=1,align='c',gstart=1,noexpand=True,nofit=True,ix={'bg':225,'fill':255,'outline':13})],[442,370,3,14,' ',dict(font='pixel',size=12,fit=False,ow=0,noexpand=True,nofit=True,ix={'bg':225,'fill':225})],[445,370,5,14,' ',dict(font='pixel',size=12,fit=False,ow=0,noexpand=True,nofit=True,ix={'bg':225,'fill':225})],[450,370,36,14,'스텔스',dict(font='pixel',size=12,fit=False,ow=1,align='c',gstart=1,noexpand=True,nofit=True,ix={'bg':225,'fill':255,'outline':13})],
  lab(451,382,43,12,'건물 파괴',X,bgidx=225),[450,393,46,12,'1기 탑재',dict(font='pixel9',size=10,fit=False,ow=1,align='c',noexpand=True,ix={'bg':225,'fill':255,'outline':13})],[450,405,46,1,' ',dict(font='pixel9',size=10,fit=False,ow=0,noexpand=True,nofit=True,ix={'bg':225,'fill':225})],lab(412,410,42,14,'2기 탑재',X),lab(464,424,36,14,'수송',X),
  lab(6,381,96,19,'수납 중인 부대',G),lab(230,381,92,19,'탑재 중인 부대',G),lab(6,406,90,16,'부대 상세 정보',G),
  lab(0,426,100,16,'참가국 변경',G,align='c'),lab(104,426,96,16,'게임 종료',G,align='c'),[213,427,48,13,'총수입',dict(font='pixel',size=12,fit=False,ix={'bg':240,'fill':255,'ramp':True})],
@@ -201,8 +201,8 @@ SPEC[('UI/tex_ui_ash.dat','image/UI_share.gim')]=(
  row(418,15,[(44,44,'회복'),(88,44,'수복'),(132,44,'미사일'),(176,52,'대기',dict(uni=True,dx=9)),(228,68,'취소'),(296,44,'해산'),(340,44,'부대표'),(384,66,'옵션'),(450,43,'세이브')],U)+
  row(436,15,[(0,73,'페이즈 종료'),(104,56,'탑재 부대'),(160,54,'수납 부대'),(214,46,'위성'),(262,44,'철수')],U)+
  row(389,15,[(22,52,'보급 기지'),(172,40,'사령부'),(244,40,'대도시'),(316,40,'소도시'),(376,52,'육군 기지'),(448,52,'공군 기지')],U)+
- row(373,16,[(1,32,'안 함'),(33,32,'함'),(66,72,'수입 확인'),(200,70,'이동 속도',dict(uni=True,ty=374,clr=[(200,369,270,373)])),(329,67,'헥스 테두리'),(397,70,'보급 확인'),(467,32,'느림')],U)+
- row(356,17,[(0,70,'전투 애니'),(104,71,'가이드'),(174,28,'빠름'),(232,27,'있음'),(260,68,'게임 종료',dict(uni=True,ty=361))],dict(uni=True,ty=358))+
+ row(373,16,[(1,38,'안 함'),(40,26,'함'),(66,72,'수입 확인'),(200,70,'이동 속도',dict(uni=True,ty=374,clr=[(200,369,270,373)])),(329,67,'헥스 테두리'),(397,70,'보급 확인'),(467,32,'느림')],U)+
+ row(356,17,[(0,70,'전투 애니'),(108,66,'가이드'),(174,28,'빠름'),(232,27,'있음'),(260,68,'게임 종료',dict(uni=True,ty=361))],dict(uni=True,ty=358))+
  [[87,389,42,14,'부대 상세',OR],[153,376,42,15,'전투 개시',OR],[326,436,62,15,'착륙 지점 선택',OR],[404,436,64,15,'부대 상세 정보',OR],[484,436,22,15,'해제',OR],
   [17,453,62,11,'지형 상세 정보',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],[95,453,59,11,'게임으로',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],[169,453,21,11,'결정',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],[207,453,38,11,'전환',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],
   [263,453,40,11,'수리하기',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],[318,454,24,10,'종료',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],[358,453,21,11,'등록',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],[403,451,46,11,'취소',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],[465,451,22,11,'확정',dict(font='pixel9',size=10,fit=False,ow=1,ix={'bg':254,'fill':255,'outline':6})],

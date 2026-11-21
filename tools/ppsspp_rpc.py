@@ -2,7 +2,7 @@
 import websocket,json,uuid,sys,base64
 from pathlib import Path
 class Debugger:
- def __init__(self):self.w=websocket.create_connection('ws://127.0.0.1:49742/debugger',subprotocols=['debugger.ppsspp.org'],timeout=6)
+ def __init__(self):self.w=websocket.create_connection('ws://127.0.0.1:49742/debugger',subprotocols=['debugger.ppsspp.org'],timeout=30)
  def call(self,event,**args):
   ticket=str(uuid.uuid4());self.w.send(json.dumps(dict(event=event,ticket=ticket,**args)))
   while True:
