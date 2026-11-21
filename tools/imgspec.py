@@ -21,10 +21,10 @@ SPEC={
  [288,488,122,18,'미션 모드',dict(font='bold',size=17,bg=[200,200,200,255],fill=[255,255,255,255],outline=[150,140,135,255])],
 ],
 }
-W=dict(font='bold',bg='mode',fill=[255,255,255,255],outline=[40,40,40,255])
+W=dict(autoix=True,font='bold',bg='mode',fill=[255,255,255,255],outline=[40,40,40,255])
 Y=dict(font='bold',bg='mode',fill=[220,200,40,255],outline=[60,50,10,255])
 SPEC[('UI/tex_op_ash.dat','image/UI_tmenu02.gim')]=[
- [82,0,76,16,'전체 맵',dict(W,outline=None,size=14)],
+ [82,0,76,16,'전체 맵',dict(W,outline=None,size=14,pal=2)],
  [82,19,76,17,'대도시',dict(W,outline=None,size=15,align='l')],
  [82,40,76,17,'소도시',dict(W,outline=None,size=15,align='l')],
  [82,61,76,17,'육군 기지',dict(W,outline=None,size=15,align='l')],
@@ -35,9 +35,9 @@ SPEC[('UI/tex_op_ash.dat','image/UI_tmenu02.gim')]=[
  [14,158,52,20,'B진영',dict(Y,size=17)],
  [94,150,56,20,'A진영',dict(Y,size=17)],
  [162,3,62,16,'플레이어',dict(Y,size=15,align='l')],
- [162,27,62,16,'생산 타입',dict(Y,size=15,align='l')],
- [162,51,62,16,'군자금',dict(Y,size=15,align='l')],
- [162,84,62,17,'동맹국 설정',dict(Y,size=15,align='l')],
+ [162,27,62,16,'생산 타입',dict(Y,size=15,align='l',pal=3,fill=[235,254,235,255],outline=None)],
+ [162,51,62,16,'군자금',dict(Y,size=15,align='l',pal=3,fill=[235,254,235,255],outline=None)],
+ [162,84,62,17,'동맹국 설정',dict(Y,size=15,align='l',pal=3,fill=[235,254,235,255],outline=None)],
  [224,64,90,28,'검색 중...',dict(W,bg='rowmed',thr=0,size=26,align='l')],
  [162,101,342,82,'메모리 스틱™의 빈 용량이 부족합니다.\n대전략 포터블의 데이터를 세이브하려면\n메모리 스틱™에\n320KB 이상의 빈 용량이 필요합니다.\n이대로 게임을 시작하시겠습니까?',dict(W,size=14,spacing=2,outline=[60,60,60,255])],
  [0,182,318,80,'메모리 스틱™을 찾을 수 없습니다.\n대전략 포터블의 데이터를 세이브하려면\n320KB 이상의 빈 용량이 있는\n메모리 스틱™이 필요합니다.\n이대로 게임을 시작하시겠습니까?',dict(W,size=14,spacing=2,outline=[60,60,60,255])],
@@ -48,7 +48,7 @@ SPEC[('UI/tex_op_ash.dat','image/UI_tmenu02.gim')]=[
  [334,314,76,17,'진영 설정',dict(W,size=15)],
  [411,314,92,17,'참전국 선택',dict(W,size=15)],
  [334,334,76,18,'통신 대전',dict(W,size=15)],
- [106,408,66,18,'동맹국 설정',dict(W,size=15)],
+ [109,407,63,15,'동맹국 설정',dict(W,size=13,pal=3)],
  [474,399,34,16,'색적',dict(W,outline=None,size=14)],
  [474,417,36,16,'없음',dict(W,outline=None,size=14)],
  [420,440,84,16,'턴 수 설정',dict(W,size=15)],
@@ -58,15 +58,15 @@ SPEC[('UI/tex_op_ash.dat','image/UI_tmenu02.gim')]=[
  [120,471,220,14,'삭제를 중지했습니다. 다시 시도하겠습니까?',dict(W,size=14,outline=[60,60,60,255])],
  [464,0,42,17,'군자금',dict(W,size=14)],
  [466,18,36,16,'있음',dict(W,outline=None,size=14)],[478,34,22,16,'낮',dict(W,outline=None,size=14)],
- [388,383,76,18,'전장 선택',dict(W,size=15)],
- [188,401,100,20,'참가국 설정',dict(W,size=16)],
- [288,401,82,20,'게임 설정',dict(W,size=16)],
- [190,423,66,17,'플레이어',dict(W,fill=[20,20,20,255],outline=None,size=14)],
- [256,423,64,17,'생산 타입',dict(W,fill=[20,20,20,255],outline=None,size=14)],
+ [388,383,76,18,'전장 선택',dict(font='pixel',size=12,fit=False,ow=1,align='c',ix={'bg':'inpaint','fill':230,'outline':216,'excl':list(range(216,231))})],
+ [188,401,100,20,'참가국 설정',dict(font='pixel',size=12,fit=False,ow=1,align='c',ix={'bg':'inpaint','fill':230,'outline':216,'excl':list(range(216,231))})],
+ [288,401,82,20,'게임 설정',dict(font='pixel',size=12,fit=False,ow=1,align='c',ix={'bg':'inpaint','fill':230,'outline':216,'excl':list(range(216,231))})],
+ [190,423,66,17,'플레이어',dict(W,autoix=False,fill=[20,20,20,255],outline=None,size=14)],
+ [256,423,64,17,'생산 타입',dict(W,autoix=False,fill=[20,20,20,255],outline=None,size=14)],
  [334,423,20,17,'밤',dict(W,outline=None,size=14)],
  [480,354,32,15,'낮밤',dict(W,outline=None,size=13)],
 ]
-TT=dict(font='bold',maxk=1,bg='mode',fill=[255,255,255,255],outline=[40,60,70,255])
+TT=dict(autoix=True,font='bold',maxk=1,bg='mode',fill=[255,255,255,255],outline=[40,60,70,255])
 GG=dict(font='bold',bg=[255,255,255,0],fill=[235,254,235,255],outline=[78,180,158,255])
 PN=dict(font='bold',bg='outside',fill=[255,255,255,255],outline=[30,60,80,255])
 SPEC[('UI/tex_op_ash.dat','image/UI_tmenu03.gim')]=[
@@ -297,7 +297,7 @@ SPEC[('UI/tex_ui_ash.dat','image/UI_prdct.gim')]=[
  [154,144,92,17,'이월 유닛',dict(font='sans',size=13,fit=False,ow=1,align='c',gstart=1,ix={'bg':0,'fill':255,'outline':13})],[249,144,92,17,'이월 유닛',dict(font='sans',size=13,fit=False,ow=1,align='c',gstart=1,ix={'bg':103,'fill':1,'outline':67})],[345,144,71,17,'수납 유닛',dict(font='sans',size=13,fit=False,ow=1,align='c',gstart=1,ix={'bg':0,'fill':255,'outline':13})],[419,144,68,17,'수납 유닛',dict(font='sans',size=13,fit=False,ow=1,align='c',gstart=1,ix={'bg':103,'fill':1,'outline':67})],
  [58,152,74,17,'유닛 생산',dict(font='sans',size=13,fit=False,ow=1,align='c',gstart=1,ix={'bg':0,'fill':255,'outline':13})],[138,167,74,16,'유닛 생산',dict(font='sans',size=13,fit=False,ow=1,align='c',gstart=1,ix={'bg':103,'fill':1,'outline':67})],
  [58,174,50,13,'R공화국',CPP],[217,168,50,14,'A합중국',CPP],[272,168,50,14,'C공화국',CPP],[337,168,25,14,'J국',CPP],[386,168,36,14,'K민국',CPP],[433,168,49,14,'N인민국',CPP],
- [50,188,54,10,'생산 턴',dict(CPP,font='pixel9',size=10,align='l')],[145,185,34,13,'작전명',dict(CPP,gstart=1)],[181,185,36,13,'부대 수',dict(CPP,gstart=1)],
+ [50,188,54,10,'생산 턴',dict(CPP,font='pixel9',size=10,align='l')],[145,185,34,13,'작전명',dict(CPP,gstart=1)],[184,185,32,13,'부대 수',dict(CPP,gstart=1)],
  [51,198,45,11,'R공화국',dict(CPP,font='pixel9',size=10,align='l',dy=1)],[106,198,39,10,'C공화국',dict(CPP,font='pixel9',size=10)],[144,198,38,10,'N인민국',dict(CPP,font='pixel9',size=10)],
  [347,203,46,10,'와일드기스',dict(CPP,font='pixel9',size=10)],[489,0,22,10,'J국',dict(CPP,font='pixel9',size=10)],
  [277,181,70,13,'점령 건물 수',dict(CPP,align='l')],[347,181,60,13,'총 건물 수',dict(CPP,align='l')],[408,181,76,13,'중립 건물 수',CPP],
@@ -322,3 +322,10 @@ SPEC[('UI/tex_wib.ofs','book_image/UI_wib01.gim')]=(
   [66,124,44,14,'전폭:',WL],[134,124,70,14,'탄체 직경:',WL],[258,134,44,14,'전고:',WL],[352,134,46,14,'중량:',WL],[422,134,72,14,'최고 속도:',WL],
   [40,138,70,14,'항속 거리:',WL],[134,138,70,14,'탑재 연료:',WL],[206,148,96,14,'최대 상승 고도:',WL],[352,148,46,12,'추력:',WL],[448,148,46,12,'출력:',WL],
   [26,152,84,14,'메인 로터:',WL],[160,152,44,14,'주포:',WL],[232,162,70,14,'최대 사정:',WL]])
+
+# opening-menu textures: every label sprite has its own alpha palette -> keep original indices
+for _g in ('image/UI_tmenu02.gim','image/UI_tmenu03.gim'):
+    for _j in SPEC[('UI/tex_op_ash.dat',_g)]:
+        if len(_j)>5 and isinstance(_j[5],dict) and _j[4]!='플레이어' and _j[5].get('autoix') is not False and not any(k in _j[5] for k in ('ix','uni','auto','overlay','xfer','pal')):
+            _j[5]=dict(_j[5],autoix=True)
+        elif len(_j)>5 and isinstance(_j[5],dict) and 'pal' in _j[5]: _j[5].pop('autoix',None)

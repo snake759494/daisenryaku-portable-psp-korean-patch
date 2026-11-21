@@ -142,6 +142,26 @@ def apply_job(T,job,debug=False):
         out=R*(1-om[...,None])+np.array(o.get('outline',[45,35,30,255]),float)*om[...,None]
         out=out*(1-m[...,None])+np.array(o.get('fill',[250,248,240,255]),float)*m[...,None]
         T.idx[y:y+h,x:x+w]=T.quant(out,None); return {}
+    if o.get('autoix') and 'ix' not in o:
+        # labels drawn with their own (alpha) palette: keep transparent bg index, reuse original fill/outline indices
+        from scipy import ndimage as nd
+        ob=T.orig[y:y+h,x:x+w]; cnt=np.bincount(ob.ravel(),minlength=256); bgi=int(cnt.argmax())
+        cands=[(int((P[np.nonzero(cnt)[0],3]>200).sum()),k) for k,P in enumerate(T.pals) if P[bgi,3]<40]
+        if cands:
+            P=T.pals[max(cands)[1]]
+            ink=(ob!=bgi)&(P[ob,3]>100)
+            if ink.sum()>8:
+                adj=ink&nd.binary_dilation(~ink)
+                lum_=P[:,:3].mean(1)
+                inn=ob[ink&~adj] if (ink&~adj).any() else ob[ink]
+                ic=np.bincount(inn,minlength=256); c_=np.nonzero(ic>=max(1,0.08*ic.sum()))[0]
+                if not len(c_): c_=np.nonzero(np.bincount(ob[ink],minlength=256))[0]
+                fi=int(c_[np.argmax(lum_[c_])])
+                ac=np.bincount(ob[adj],minlength=256); a_=np.nonzero(ac>=max(1,0.08*ac.sum()))[0]
+                oi=int(a_[np.argmin(lum_[a_])]) if len(a_) else fi
+                ix={'bg':bgi,'fill':fi}
+                if abs(lum_[fi]-lum_[oi])>40: ix['outline']=oi
+                o=dict(o,ix=ix,ow=o.get('ow',1)); job=list(job[:5])+[o]
     if o.get('uni') and o.get('gen'):
         return uni_apply(T,job)
     if o.get('uni'):
@@ -304,13 +324,20 @@ def _apply2(T,job,x,y,w,h,text,o):
         if ix.get('bg')=='rowmode':
             ob2=T.orig[y:y+h,x:x+w]; res=np.zeros((h,w),np.uint8)
             for r in range(h):
-                v=ob2[r][(ob2[r]!=ix['fill'])&(ob2[r]!=ix.get('outline',-1))]
+                v=ob2[r][(ob2[r]!=ix['fill'])&(ob2[r]!=ix.get('outline',-1))&~np.isin(ob2[r],ix.get('excl',[]))]
                 res[r]=np.bincount(v).argmax() if len(v) else ob2[r][0]
         elif isinstance(ix.get('bg'),dict):
             g=ix['bg']; res=np.zeros((h,w),np.uint8)
             for r in range(h):
                 ph=(y+r-g['phase'])%g['period']; src=g['grid'] if ph==0 else (g.get('pre',g['norm']) if ph==g['period']-1 else g['norm'])
                 res[r]=g['gridval'] if (ph==0 and 'gridval' in g) else T.orig[src,x:x+w]
+        elif ix.get('bg')=='inpaint':
+            from scipy import ndimage as nd
+            res=T.orig[y:y+h,x:x+w].copy(); txt=np.isin(res,ix['excl']); txt=nd.binary_dilation(txt,iterations=ix.get('grow',1))
+            for r in range(h):
+                ok=np.nonzero(~txt[r])[0]
+                if not len(ok): continue
+                for c in np.nonzero(txt[r])[0]: res[r,c]=res[r,ok[np.abs(ok-c).argmin()]]
         elif ix.get('bg')=='boxmode':
             ob2=T.orig[y:y+h,x:x+w].ravel(); v=ob2[(ob2!=ix['fill'])&(ob2!=ix.get('outline',-1))]
             res=np.full((h,w),np.bincount(v).argmax(),np.uint8)
